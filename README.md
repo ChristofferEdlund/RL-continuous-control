@@ -2,24 +2,30 @@
 
 [image1]: https://camo.githubusercontent.com/7ad5cdff66f7229c4e9822882b3c8e57960dca4e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f766964656f2e756461636974792d646174612e636f6d2f746f706865722f323031382f4a756e652f35623165613737385f726561636865722f726561636865722e676966 "Trained Agent"
 
-# RL Navigation
+# RL Continuous Control
 
 ### Introduction
 
-This project utilizes deep reinforcement learning to train an agent to navigate in a large, square world and collect 
-yellow bananas while avoiding blue bananas.
+This project utilizes actor-critic deep reinforcement learning to train an agent to control double jointed arms with
+goal of holding the tip of the arm inside a moving sphere (control zone).
 
 ![Trained Agent][image1]
 
-A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.  Thus, the goal of your agent is to collect as many yellow bananas as possible while avoiding blue bananas.  
+A reward of +0.1 is given each frame the arms hand is inside the control zone, those generating the incentive for agent
+to reach out and follow the moving sphere.
 
-The state space has 37 dimensions and contains the agent's velocity, along with ray-based perception of objects around agent's forward direction.  Given this information, the agent has to learn how to best select actions.  Four discrete actions are available, corresponding to:
-- **`0`** - move forward.
-- **`1`** - move backward.
-- **`2`** - turn left.
-- **`3`** - turn right.
+The state space has 33 dimensions and contains the position, rotation, velocity and angular velocities of the arm.
+Given this information, the agent has to learn how to best select actions. Four continuous actions are available, 
+corresponding position, rotation, velocity and angular velocities of the arm. The actions are represented by a vector
+of four dimensions with value in the range of [-1, 1].
 
-The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
+The task is episodic and in order to solve the environment, your agent must get an average score of +30 over 100 
+consecutive episodes.
+In the multi-agent environment the score for each episode is calculate as the mean score across agents for that 
+episode.
+
+In this project we solve the environment for both a single agent and a 20 agent environment using the deep deterministic
+gradient policy (DDPG) method.
 
 ### Getting Started
 
