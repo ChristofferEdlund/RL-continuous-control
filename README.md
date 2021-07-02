@@ -71,11 +71,11 @@ The resources folder contains plots, training checkpoints and raw metrics used t
 
 ## Results
 
-The following is the score plot of a single agent who managed to solve the environment in 761 episodes.
+The following is the score plot of a single agent who managed to solve the environment in 861 episodes.
 
 ![Alt text](resources/plots/single_control_plot.png "Title")
 
-The multi-agent environment containing distributing the traning to 20 agents manage to solve the environment in 20 episodes.
+The multi-agent environment containing distributing the traning to 20 agents manage to solve the environment in 120 episodes.
 
 ![Alt text](resources/plots/countinous_control_score_plot.png "Title")
 
